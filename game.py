@@ -1,5 +1,5 @@
 """
-Number Guessing Game 🎲
+Number Guessing Game
 -----------------------
 The computer randomly picks a number within a given range.
 Your job is to guess it in limited attempts.
@@ -22,7 +22,7 @@ def number_guessing_game():
         number = random.randint(1, 100)
         attempts_left = 10
         attempts_used = 0
-        print("\n🎮 Game Started!")
+        print("\nGame Started!")
         print("Choose a number between 1 and 100")
         print(f"You have {attempts_left} chances.\n")
 
@@ -31,46 +31,46 @@ def number_guessing_game():
             try:
                 guess = int(input("Enter your guess: "))
             except ValueError:
-                print("⚠️ Please enter a valid number.")
+                print("Please enter a valid number.")
                 continue
 
             attempts_used += 1
             attempts_left -= 1
 
             if guess == number:
-                print(f"🎉 Correct! You guessed it in {attempts_used} attempts.")
+                print(f"Correct! You guessed it in {attempts_used} attempts.")
 
                 # update high score
                 if high_score is None or attempts_used < high_score:
                     high_score = attempts_used
-                    print("🏆 New High Score!")
+                    print("New High Score!")
 
                 break
             elif guess < number:
-                print("🔼 Too low! Try again.")
+                print("Too low! Try again.")
             else:
-                print("🔽 Too high! Try again.")
+                print("Too high! Try again.")
 
             # Bonus hint after 5th attempt
             if attempts_used == 5:
                 if number % 2 == 0:
-                    print("💡 Hint: The number is EVEN.")
+                    print("Hint: The number is EVEN.")
                 else:
-                    print("💡 Hint: The number is ODD.")
+                    print("Hint: The number is ODD.")
 
-            print(f"👉 Attempts left: {attempts_left}\n")
+            print(f"Attempts left: {attempts_left}\n")
 
         else:  # runs if loop ends without break
-            print(f"😢 Out of attempts! The number was {number}.")
+            print(f"Out of attempts! The number was {number}.")
 
         # Show high score
         if high_score:
-            print(f"📊 Current High Score: {high_score} attempts")
+            print(f"Current High Score: {high_score} attempts")
 
         # Replay option
         play_again = input("\nDo you want to play again? (yes/no): ").lower()
         if play_again not in ("yes", "y"):
-            print("👋 Thanks for playing! Goodbye.")
+            print("Thanks for playing! Goodbye.")
             break
 
 # Run the game
